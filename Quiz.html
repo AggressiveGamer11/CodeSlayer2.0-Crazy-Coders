@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/quiz.css">
+    <title>Quizzes | EDUGpt</title>
+</head>
+
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">✦</div>
+                <span>EDUGpt</span>
+            </div>
+
+            <div class="nav-title">Menu</div>
+            <nav>
+                <a href="Dashboard.html"><span>▦</span><span>Dashboard</span></a>
+                <a href="AITutor.html"><span>✦</span><span>AI Tutor</span></a>
+                <a class="active" href="Quiz.html"><span>✓</span><span>Quizzes</span></a>
+                <a href="Material.html"><span>▤</span><span>Materials</span></a>
+                <a href="#"
+                    onclick="alert('Results page coming soon!'); return false;"><span>◉</span><span>Results</span></a>
+            </nav>
+        </aside>
+
+        <main class="main">
+            <header class="topbar">
+                <div>
+                    <h1 id="userGreeting">Practice Quizzes</h1>
+                    <p>Filter by subject, difficulty, or status to test your knowledge.</p>
+                </div>
+                <div class="user-area">
+                    <div class="avatar" id="userAvatar">ST</div>
+                    <button class="logout-btn" id="logoutBtn" title="Log out">Logout ↵</button>
+                </div>
+            </header>
+
+            <!-- Stats Overview -->
+            <section class="quiz-stats">
+                <div class="stat-card">
+                    <div class="stat-label">Total Quizzes</div>
+                    <div class="stat-value" id="statTotal">12</div>
+                    <div class="stat-desc">JavaScript, Math & Physics</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Solved</div>
+                    <div class="stat-value" style="color: var(--success);" id="statSolved">0</div>
+                    <div class="stat-desc" id="statSolvedPct">0% completed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Unsolved</div>
+                    <div class="stat-value" style="color: var(--warning);" id="statUnsolved">12</div>
+                    <div class="stat-desc">Ready to attempt</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Average Score</div>
+                    <div class="stat-value" style="color: var(--primary);" id="statAvgScore">--</div>
+                    <div class="stat-desc">Overall accuracy</div>
+                </div>
+            </section>
+
+            <!-- Filter Controls -->
+            <section class="filter-section">
+                <div class="filter-group">
+                    <span class="filter-label">Subject:</span>
+                    <div class="filter-tabs" id="subjectFilter">
+                        <button class="filter-tab active" data-subject="all">All</button>
+                        <button class="filter-tab" data-subject="JavaScript">JavaScript ⚡</button>
+                        <button class="filter-tab" data-subject="Mathematics">Mathematics 📐</button>
+                        <button class="filter-tab" data-subject="Physics">Physics ⚛</button>
+                        <button class="filter-tab" data-subject="Chemistry">Chemistry 🧪</button>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <span class="filter-label">Difficulty:</span>
+                    <div class="filter-tabs" id="difficultyFilter">
+                        <button class="filter-tab active" data-difficulty="all">All</button>
+                        <button class="filter-tab" data-difficulty="easy">Easy 🟢</button>
+                        <button class="filter-tab" data-difficulty="medium">Medium 🟡</button>
+                        <button class="filter-tab" data-difficulty="hard">Hard 🔴</button>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <span class="filter-label">Status:</span>
+                    <div class="filter-tabs" id="statusFilter">
+                        <button class="filter-tab active" data-status="all">All</button>
+                        <button class="filter-tab" data-status="unsolved">Unsolved</button>
+                        <button class="filter-tab" data-status="solved">Solved ✓</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quiz Cards Grid -->
+            <section class="quiz-grid" id="quizGrid">
+                <!-- Rendered dynamically -->
+            </section>
+        </main>
+    </div>
+
+    <!-- Interactive Quiz Runner Modal -->
+    <div class="modal-overlay" id="quizModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="modalQuizTitle">Quiz</h3>
+                <button class="modal-close" id="modalClose">✕</button>
+            </div>
+
+            <div class="progress-track">
+                <div class="progress-fill" id="modalProgress"></div>
+            </div>
+
+            <div id="quizQuestionView">
+                <div class="question-counter" id="modalCounter">Question 1 of 3</div>
+                <div class="question-text" id="modalQuestionText">Question text goes here...</div>
+
+                <div class="options-group" id="modalOptions">
+                    <!-- Options rendered dynamically -->
+                </div>
+
+                <div class="modal-footer">
+                    <span style="font-size: 13px; color: var(--muted);" id="quizSubjectTag">JavaScript</span>
+                    <button class="next-btn" id="modalNextBtn" disabled>Next Question →</button>
+                </div>
+            </div>
+
+            <div id="quizResultsView" class="results-view" style="display: none;">
+                <div class="score-badge" id="resultScoreCircle">100%</div>
+                <h2 id="resultHeading">Quiz Completed!</h2>
+                <p id="resultText">You answered 3 out of 3 questions correctly.</p>
+                <button class="next-btn" id="modalFinishBtn">Back to Quizzes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="Quiz.js"></script>
+</body>
+
+</html>

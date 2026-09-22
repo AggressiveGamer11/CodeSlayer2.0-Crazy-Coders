@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Study Materials | EDUGpt</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/material.css" />
+</head>
+
+<body>
+    <div class="app">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">✦</div>
+                <span>EDUGpt</span>
+            </div>
+
+            <div class="nav-title">Menu</div>
+            <nav>
+                <a class="nav-link" href="Dashboard.html">
+                    <span>▦</span><span>Dashboard</span>
+                </a>
+                <a class="nav-link" href="AITutor.html">
+                    <span>✦</span><span>AI Tutor</span>
+                </a>
+                <a class="nav-link" href="Quiz.html">
+                    <span>✓</span><span>Quizzes</span>
+                </a>
+                <a class="nav-link active" href="Material.html">
+                    <span>▤</span><span>Materials</span>
+                </a>
+                <a class="nav-link" href="#" onclick="alert('Progress analytics coming soon!'); return false;">
+                    <span>◉</span><span>Results</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main">
+            <!-- Colorful Hero Header -->
+            <header class="hero-banner">
+                <div class="hero-text">
+                    <h1 id="userGreeting">Study Materials & Notes 📚</h1>
+                    <p>Browse expert lecture notes, cheatsheets, and flashcards. Filter by subject or save topics to ask
+                        your AI Tutor later!</p>
+                </div>
+
+                <div class="hero-actions">
+                    <!-- Tutor Saved Questions Queue Button -->
+                    <button class="tutor-queue-badge-btn" onclick="openTutorQueueModal()"
+                        title="View saved materials for AI Tutor">
+                        <span>🎓 Tutor Queue</span>
+                        <span class="queue-count" id="tutorQueueCount">0</span>
+                    </button>
+
+                    <!-- User Profile & Logout -->
+                    <div class="user-area">
+                        <div class="avatar" id="userAvatar">ST</div>
+                        <button class="logout-btn" id="logoutBtn" title="Log out">Logout ↵</button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Control Panel: Live Search & Filters -->
+            <section class="controls-section">
+                <!-- Live Search Input -->
+                <div class="search-bar-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="searchInput" class="search-input"
+                        placeholder="Search by topic, formula, author, or keyword (e.g., Calculus, Big-O, SN2, PyTorch)..."
+                        autocomplete="off" />
+                    <button class="clear-search-btn" id="clearSearchBtn" title="Clear search">✕</button>
+                </div>
+
+                <!-- Filter Row -->
+                <div class="filters-row">
+                    <!-- Subject Filter Pills -->
+                    <div class="filter-group">
+                        <span class="filter-label">Subject:</span>
+                        <div class="subject-pills" id="subjectFilterContainer">
+                            <button class="subject-pill active" data-subject="all">All Subjects</button>
+                            <button class="subject-pill" data-subject="Mathematics">📐 Math</button>
+                            <button class="subject-pill" data-subject="Physics">⚛ Physics</button>
+                            <button class="subject-pill" data-subject="Computer Science">💻 CS & AI</button>
+                            <button class="subject-pill" data-subject="Chemistry">🧪 Chemistry</button>
+                            <button class="subject-pill" data-subject="Biology">🧬 Biology</button>
+                        </div>
+                    </div>
+
+                    <!-- Secondary Filters (Type & Difficulty) -->
+                    <div class="secondary-filters">
+                        <!-- Material Type Filter -->
+                        <select id="typeFilter" class="select-filter" aria-label="Filter by material type">
+                            <option value="all">All Types (📄 🎥 ⚡ 📝 🎴 💻)</option>
+                            <option value="PDF">PDF Documents 📄</option>
+                            <option value="Cheatsheet">Cheatsheets ⚡</option>
+                            <option value="Notes">Lecture Notes 📝</option>
+                            <option value="Video">Video Guides 🎥</option>
+                            <option value="Flashcards">Flashcards 🎴</option>
+                            <option value="Code">Interactive Code 💻</option>
+                        </select>
+
+                        <!-- Difficulty Level Filter -->
+                        <select id="difficultyFilter" class="select-filter" aria-label="Filter by difficulty">
+                            <option value="all">All Difficulties</option>
+                            <option value="beginner">Beginner 🟢</option>
+                            <option value="intermediate">Intermediate 🟡</option>
+                            <option value="advanced">Advanced 🔴</option>
+                            <option value="master">Master 💜</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Study Materials Cards Grid -->
+            <section class="materials-grid" id="materialsGrid">
+                <!-- Rendered dynamically by Material.js -->
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal 1: Open Notes Viewer Modal -->
+    <div class="modal-overlay" id="notesModal">
+        <div class="modal-container">
+            <div class="modal-header-banner bg-math" id="modalBanner">
+                <div class="modal-header-title">
+                    <h2 id="modalTitle">Calculus & Differential Equations</h2>
+                    <span class="modal-header-meta" id="modalSubMeta">Mathematics · PDF · Intermediate</span>
+                </div>
+                <button class="close-modal-btn" onclick="closeNotesModal()" title="Close notes viewer">✕</button>
+            </div>
+
+            <div class="modal-body" id="modalBody">
+                <!-- Rendered dynamically by openNotesModal() -->
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeNotesModal()">Close Reader</button>
+                <button class="btn-open-notes" id="modalAskTutorBtn" onclick="modalAskTutorAction()">
+                    ✦ Ask Tutor About This
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Saved Tutor Queue Drawer Modal -->
+    <div class="modal-overlay" id="tutorQueueModal">
+        <div class="modal-container" style="max-width: 650px;">
+            <div class="modal-header-banner bg-cs">
+                <div class="modal-header-title">
+                    <h2>🎓 Saved Tutor Queue</h2>
+                    <span class="modal-header-meta">Materials bookmarked to discuss with EDUGpt AI Tutor</span>
+                </div>
+                <button class="close-modal-btn" onclick="closeTutorQueueModal()" title="Close queue">✕</button>
+            </div>
+
+            <div class="modal-body">
+                <div class="queue-list" id="queueItemsList">
+                    <!-- Rendered dynamically by openTutorQueueModal() -->
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeTutorQueueModal()">Close</button>
+                <button class="btn-open-notes" onclick="window.location.href='AITutor.html'">
+                    Launch AI Tutor Session →
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Logic -->
+    <script src="Material.js"></script>
+</body>
+
+</html>

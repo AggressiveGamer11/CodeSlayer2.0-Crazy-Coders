@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Tutor | EDUGpt</title>
+  <link rel="stylesheet" href="styles/AITutorDesign.css" />
+  <style>
+    .logout-btn {
+      background: #fff0f0;
+      color: #e53935;
+      border: 1px solid #ffcdd2;
+      padding: 7px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 150ms ease;
+    }
+
+    .logout-btn:hover {
+      background: #ffebee;
+    }
+
+    .clear-btn {
+      background: #f0f1f8;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-left: auto;
+      transition: all 150ms ease;
+    }
+
+    .clear-btn:hover {
+      background: #e3e5f2;
+      color: var(--text);
+    }
+
+    .typing-indicator {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 10px 14px;
+      font-style: italic;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .typing-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--muted);
+      border-radius: 50%;
+      animation: typingBounce 1.2s infinite ease-in-out;
+    }
+
+    .typing-dot:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .typing-dot:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes typingBounce {
+
+      0%,
+      80%,
+      100% {
+        transform: translateY(0);
+      }
+
+      40% {
+        transform: translateY(-5px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="logo">
+        <div class="logo-icon">✦</div>
+        <span>EDUGpt</span>
+      </div>
+
+      <div class="menu-title">Menu</div>
+
+      <nav>
+        <a class="nav-link" href="Dashboard.html">
+          <span>▦</span><span>Dashboard</span>
+        </a>
+        <a class="nav-link active" href="AITutor.html">
+          <span>✦</span><span>AI Tutor</span>
+        </a>
+        <a class="nav-link" href="Quiz.html">
+          <span>✓</span><span>Quizzes</span>
+        </a>
+        <a class="nav-link" href="Material.html">
+          <span>▤</span><span>Materials</span>
+        </a>
+        <a class="nav-link" href="#" onclick="alert('Results page coming soon!'); return false;">
+          <span>◉</span><span>Results</span>
+        </a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h1>AI Tutor</h1>
+          <p>Ask questions and get personalized help with your studies.</p>
+        </div>
+
+        <div class="profile">
+          <span id="profileName">Student</span>
+          <div class="avatar" id="profileAvatar">ST</div>
+          <button class="logout-btn" id="logoutBtn" title="Log out">Logout ↵</button>
+        </div>
+      </header>
+
+      <section class="tutor-layout">
+        <div class="chat-card">
+          <div class="chat-header">
+            <div class="ai-icon">✦</div>
+            <div>
+              <h2>EDUGpt Tutor</h2>
+              <span class="online">● Online and ready to help</span>
+            </div>
+            <button class="clear-btn" id="clearChat" title="Reset chat history">Clear Chat</button>
+          </div>
+
+          <div class="messages" id="messages">
+            <!-- Messages rendered dynamically -->
+          </div>
+
+          <form class="chat-form" id="chatForm">
+            <input id="messageInput" type="text" placeholder="Ask your tutor a question..." autocomplete="off"
+              required />
+            <button class="send-button" type="submit" aria-label="Send message">
+              ↑
+            </button>
+          </form>
+        </div>
+
+        <aside class="suggestions">
+          <h2>Try asking</h2>
+          <p>Choose a question to begin your learning session.</p>
+
+          <button class="suggestion-button">
+            Explain quadratic equations
+          </button>
+          <button class="suggestion-button">
+            Help me study thermodynamics
+          </button>
+          <button class="suggestion-button">
+            Create a practice quiz
+          </button>
+          <button class="suggestion-button">
+            Explain this topic simply
+          </button>
+        </aside>
+      </section>
+    </main>
+  </div>
+
+  <script src="./AITutor.js"></script>
+</body>
+
+</html>

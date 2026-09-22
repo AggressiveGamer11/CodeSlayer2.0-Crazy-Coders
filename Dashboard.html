@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles/student-dashboard.css">
+  <link rel="stylesheet" href="styles/quiz.css">
+  <title>Student Dashboard | EDUGpt</title>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="logo">
+        <div class="logo-icon">✦</div>
+        <span>EDUGpt</span>
+      </div>
+
+      <div class="nav-title">Menu</div>
+      <nav>
+        <a class="active" href="Dashboard.html"><span>▦</span><span>Dashboard</span></a>
+        <a href="AITutor.html"><span>✦</span><span>AI Tutor</span></a>
+        <a href="Quiz.html"><span>✓</span><span>Quizzes</span></a>
+        <a href="#"
+          onclick="alert('Progress overview coming soon!'); return false;"><span>▥</span><span>Progress</span></a>
+        <a href="#" onclick="alert('Settings page coming soon!'); return false;"><span>⚙</span><span>Settings</span></a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h1 id="userGreeting">Good morning, Student! 👋</h1>
+          <p>Here’s an overview of your learning progress.</p>
+        </div>
+        <div class="user-area">
+          <div class="notification-wrapper">
+            <div class="notification" id="notifBell" title="Notifications">♧</div>
+            <div class="notification-popover" id="notifPopover">
+              <h4>Notifications</h4>
+              <div class="notification-item">✨ AI Tutor recommended practicing <strong>Algebra</strong> today.</div>
+              <div class="notification-item">🏆 You achieved a 12-day learning streak!</div>
+            </div>
+          </div>
+          <div class="avatar" id="userAvatar">ST</div>
+          <button class="logout-btn" id="logoutBtn" title="Log out of account">Logout ↵</button>
+        </div>
+      </header>
+
+      <section class="stats">
+        <div class="card stat-card">
+          <div>
+            <div class="stat-label">Average Score</div>
+            <div class="stat-value">82%</div>
+            <div class="stat-change">↗ 6.4% this month</div>
+          </div>
+          <div class="stat-icon">♧</div>
+        </div>
+
+        <div class="card stat-card">
+          <div>
+            <div class="stat-label">Quizzes Completed</div>
+            <div class="stat-value">24</div>
+            <div class="stat-change">↗ 4 this week</div>
+          </div>
+          <div class="stat-icon">✓</div>
+        </div>
+
+        <div class="card stat-card">
+          <div>
+            <div class="stat-label">Learning Streak</div>
+            <div class="stat-value">12 days</div>
+            <div class="stat-change">Personal best!</div>
+          </div>
+          <div class="stat-icon">♨</div>
+        </div>
+      </section>
+
+      <section class="content-grid">
+        <div class="card">
+          <div class="card-heading">
+            <h2>Learning Progress</h2>
+            <a href="#" onclick="alert('Detailed analytics view coming soon!'); return false;">View details</a>
+          </div>
+
+          <div class="progress-row">
+            <span>Overall course progress</span>
+            <strong>68%</strong>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" style="width: 68%"></div>
+          </div>
+
+          <div class="progress-row">
+            <span>Mathematics</span>
+            <strong>76%</strong>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" style="width: 76%"></div>
+          </div>
+
+          <div class="progress-row">
+            <span>Physics</span>
+            <strong>54%</strong>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" style="width: 54%"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-heading">
+            <h2>Weak Topics</h2>
+            <a href="AITutor.html">Improve skills</a>
+          </div>
+
+          <div class="topic">
+            <div class="topic-name"><span>Algebra</span><span>52%</span></div>
+            <div class="progress-track">
+              <div class="progress-fill" style="width: 52%; background: var(--warning)"></div>
+            </div>
+          </div>
+
+          <div class="topic">
+            <div class="topic-name"><span>Thermodynamics</span><span>61%</span></div>
+            <div class="progress-track">
+              <div class="progress-fill" style="width: 61%; background: var(--warning)"></div>
+            </div>
+          </div>
+
+          <div class="topic">
+            <div class="topic-name"><span>Geometry</span><span>68%</span></div>
+            <div class="progress-track">
+              <div class="progress-fill" style="width: 68%; background: var(--warning)"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card recommendation">
+          <div class="card-heading">
+            <h2>✨ AI Recommendation</h2>
+          </div>
+          <p>
+            Focus on Algebra today. Based on your recent quiz results,
+            practicing quadratic equations could improve your score by up to 15%.
+          </p>
+          <button class="button" onclick="window.location.href='AITutor.html'">Start practice</button>
+        </div>
+
+        <div class="card quiz-list">
+          <div class="card-heading">
+            <h2>Recommended Quizzes</h2>
+            <a href="#" onclick="alert('Full quiz catalogue coming soon!'); return false;">View all quizzes</a>
+          </div>
+
+          <div class="quiz">
+            <div class="quiz-icon">∑</div>
+            <div class="quiz-info">
+              <h3>Quadratic Equations</h3>
+              <p>Mathematics · 10 questions · 15 min</p>
+            </div>
+            <button onclick="startQuizModal('Quadratic Equations')">Start quiz</button>
+          </div>
+
+          <div class="quiz">
+            <div class="quiz-icon">⚛</div>
+            <div class="quiz-info">
+              <h3>Heat and Thermodynamics</h3>
+              <p>Physics · 15 questions · 20 min</p>
+            </div>
+            <button onclick="startQuizModal('Heat and Thermodynamics')">Start quiz</button>
+          </div>
+
+          <div class="quiz">
+            <div class="quiz-icon">△</div>
+            <div class="quiz-info">
+              <h3>Coordinate Geometry</h3>
+              <p>Mathematics · 12 questions · 18 min</p>
+            </div>
+            <button onclick="startQuizModal('Coordinate Geometry')">Start quiz</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Quiz Modal -->
+  <div class="modal-overlay" id="quizModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="quizTitle">Quiz Preview</h3>
+        <button class="modal-close" onclick="closeQuizModal()">✕</button>
+      </div>
+      <p style="margin-bottom: 15px; color: var(--muted);" id="quizQuestion">Sample Question: What is the solution for
+        x² - 4 = 0?</p>
+      <button class="quiz-option" onclick="answerQuiz(true)">A) x = ±2</button>
+      <button class="quiz-option" onclick="answerQuiz(false)">B) x = ±4</button>
+      <button class="quiz-option" onclick="answerQuiz(false)">C) x = 0</button>
+      <div class="quiz-result" id="quizResult"></div>
+    </div>
+  </div>
+
+  <script>
+    // Authentication Check & Dynamic User Info
+    const studentLoggedIn = localStorage.getItem("studentLoggedIn");
+    const studentEmail = localStorage.getItem("studentEmail") || "student@example.com";
+
+    if (studentLoggedIn !== "true") {
+      window.location.replace("Login.html");
+    } else {
+      const username = studentEmail.split("@")[0];
+      const displayName = username.charAt(0).toUpperCase() + username.slice(1);
+      document.getElementById("userGreeting").textContent = `Good morning, ${displayName}! 👋`;
+      document.getElementById("userAvatar").textContent = displayName.substring(0, 2).toUpperCase();
+    }
+
+    // Logout Functionality
+    document.getElementById("logoutBtn").addEventListener("click", function () {
+      localStorage.removeItem("studentLoggedIn");
+      window.location.href = "Login.html";
+    });
+
+    // Notification Popover Toggle
+    const notifBell = document.getElementById("notifBell");
+    const notifPopover = document.getElementById("notifPopover");
+
+    notifBell.addEventListener("click", function (e) {
+      e.stopPropagation();
+      notifPopover.classList.toggle("active");
+    });
+
+    document.addEventListener("click", function () {
+      notifPopover.classList.remove("active");
+    });
+
+    // Quiz Modal Logic
+    const quizModal = document.getElementById("quizModal");
+    const quizTitle = document.getElementById("quizTitle");
+    const quizResult = document.getElementById("quizResult");
+
+    function startQuizModal(name) {
+      quizTitle.textContent = `Quiz: ${name}`;
+      quizResult.textContent = "";
+      quizModal.classList.add("active");
+    }
+
+    function closeQuizModal() {
+      quizModal.classList.remove("active");
+    }
+
+    function answerQuiz(isCorrect) {
+      if (isCorrect) {
+        quizResult.style.color = "var(--success)";
+        quizResult.textContent = "🎉 Correct! Great job!";
+      } else {
+        quizResult.style.color = "#e53935";
+        quizResult.textContent = "❌ Incorrect. Try again!";
+      }
+    }
+  </script>
+</body>
+
+</html>
