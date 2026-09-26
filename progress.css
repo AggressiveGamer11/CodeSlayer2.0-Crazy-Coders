@@ -1,0 +1,87 @@
+:root {
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: #24223a;
+            background: #f7f6fc;
+            --purple: #7056d9;
+            --muted: #77768a;
+            --line: #e9e7f1;
+            --surface: #fff;
+        }
+        * { box-sizing: border-box; }
+        body { margin: 0; }
+        .app { min-height: 100vh; }
+        .sidebar {
+            position: fixed; inset: 0 auto 0 0; width: 235px; padding: 26px 18px;
+            background: var(--surface); border-right: 1px solid var(--line);
+        }
+        .logo { display: flex; align-items: center; gap: 10px; font-size: 1.2rem; font-weight: 800; }
+        .logo-icon { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 12px; background: #eeeaff; color: var(--purple); }
+        .nav-title { margin: 35px 10px 12px; color: var(--muted); font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+        nav { display: grid; gap: 5px; }
+        nav a { padding: 11px 12px; border-radius: 10px; color: var(--muted); text-decoration: none; }
+        nav a:hover, nav a.active { background: #f0edff; color: var(--purple); }
+        .main { max-width: 1200px; margin-left: 235px; padding: 38px clamp(20px, 5vw, 64px); }
+        .topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 26px; }
+        h1 { margin: 0; font-size: clamp(1.7rem, 4vw, 2.2rem); letter-spacing: -.04em; }
+        .topbar p, .muted { color: var(--muted); }
+        .topbar p { margin: 7px 0 0; }
+        .avatar { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: #eeeaff; color: var(--purple); font-weight: 800; }
+        .hero {
+            display: flex; align-items: center; justify-content: space-between; gap: 24px;
+            padding: clamp(22px, 4vw, 38px); border-radius: 22px;
+            background: linear-gradient(120deg, #302663, #7056d9 75%, #9279ed);
+            color: white; box-shadow: 0 16px 38px #4a388526;
+        }
+        .hero h2 { margin: 8px 0; font-size: clamp(1.6rem, 4vw, 2.4rem); letter-spacing: -.04em; }
+        .hero p { max-width: 520px; margin: 0; color: #e6e0fa; line-height: 1.6; }
+        .eyebrow { color: #d8ccff; font-size: .75rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+        .ring {
+            --progress: 0%;
+            display: grid; flex: 0 0 auto; width: 130px; aspect-ratio: 1; place-items: center;
+            border-radius: 50%; background: conic-gradient(#9df0d0 var(--progress), #ffffff35 0);
+            transform: rotate(-90deg);
+        }
+        .ring-inner { display: grid; place-content: center; width: 106px; aspect-ratio: 1; border-radius: 50%; background: #493985; text-align: center; transform: rotate(90deg); }
+        .ring-inner strong { font-size: 1.7rem; }
+        .ring-inner span { color: #e6e0fa; font-size: .72rem; }
+        .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin: 20px 0; }
+        .card { padding: 20px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); box-shadow: 0 8px 24px #30266308; }
+        .stat-label { color: var(--muted); font-size: .85rem; }
+        .stat-value { display: block; margin-top: 8px; font-size: 1.8rem; font-weight: 800; letter-spacing: -.04em; }
+        .stat-note { margin-top: 4px; color: var(--muted); font-size: .78rem; }
+        .section-heading { display: flex; justify-content: space-between; align-items: center; gap: 14px; margin: 28px 0 13px; }
+        .section-heading h2 { margin: 0; font-size: 1.25rem; }
+        select { padding: 9px 12px; border: 1px solid var(--line); border-radius: 9px; background: white; color: inherit; }
+        .chart-card { padding: 22px; }
+        .chart { display: flex; align-items: end; gap: 12px; min-height: 190px; padding: 16px 4px 0; overflow-x: auto; }
+        .chart-item { display: flex; flex: 1 0 52px; flex-direction: column; align-items: center; justify-content: end; gap: 8px; height: 175px; }
+        .bar-track { display: flex; align-items: end; width: min(36px, 75%); height: 135px; overflow: hidden; border-radius: 9px 9px 4px 4px; background: #f0edff; }
+        .bar { width: 100%; min-height: 3px; border-radius: inherit; background: linear-gradient(#9279ed, #7056d9); transition: height .3s ease; }
+        .chart-score { color: var(--muted); font-size: .72rem; }
+        .chart-date { color: var(--muted); font-size: .68rem; white-space: nowrap; }
+        .attempts { display: grid; gap: 9px; }
+        .attempt { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: 16px; padding: 15px 17px; border: 1px solid var(--line); border-radius: 13px; background: var(--surface); }
+        .attempt strong { display: block; font-size: .92rem; }
+        .attempt small { display: block; margin-top: 4px; color: var(--muted); }
+        .score-pill { padding: 7px 10px; border-radius: 999px; background: #f0edff; color: var(--purple); font-weight: 800; font-size: .82rem; }
+        .empty { padding: 35px 16px; border: 1px dashed #d9d4eb; border-radius: 14px; color: var(--muted); text-align: center; background: white; }
+        .empty a { display: inline-block; margin-top: 8px; color: var(--purple); font-weight: 700; }
+        @media (max-width: 850px) {
+            .sidebar { position: static; width: auto; padding: 14px 18px; border-right: 0; border-bottom: 1px solid var(--line); }
+            .nav-title { display: none; }
+            nav { display: flex; gap: 4px; margin-top: 12px; overflow-x: auto; }
+            nav a { flex: 0 0 auto; padding: 9px 10px; font-size: .86rem; }
+            .main { margin-left: 0; padding-top: 24px; }
+            .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 520px) {
+            .hero { align-items: flex-start; }
+            .ring { width: 94px; }
+            .ring-inner { width: 76px; }
+            .ring-inner strong { font-size: 1.3rem; }
+            .attempt { grid-template-columns: 1fr auto; gap: 10px; }
+            .attempt .attempt-date { grid-column: 1; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+        }
