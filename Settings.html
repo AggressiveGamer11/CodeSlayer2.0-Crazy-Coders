@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f7f6fc">
+    <link rel="stylesheet" href="styles/settings.css" />
+    <title>Settings | EDUGpt</title>
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="logo"><div class="logo-icon" aria-hidden="true">✦</div><span>EDUGpt</span></div>
+            <div class="nav-title">Menu</div>
+            <nav aria-label="Main navigation">
+                <a href="Dashboard.html"><span aria-hidden="true">▦</span>Dashboard</a>
+                <a href="AITutor.html"><span aria-hidden="true">✦</span>AI Tutor</a>
+                <a href="Quiz.html"><span aria-hidden="true">✓</span>Quizzes</a>
+                <a href="Material.html"><span aria-hidden="true">▤</span>Materials</a>
+                <a href="Result.html"><span aria-hidden="true">◉</span>Results</a>
+                <a class="active" href="Settings.html" aria-current="page"><span aria-hidden="true">⚙</span>Settings</a>
+            </nav>
+        </aside>
+
+        <main class="main">
+            <header class="topbar">
+                <div>
+                    <h1>Settings</h1>
+                    <p>Personalize your EDUGpt learning experience.</p>
+                </div>
+                <div class="user-area">
+                    <div class="avatar" id="userAvatar" aria-label="User initials">ST</div>
+                    <button class="button button-secondary" id="logoutBtn" type="button">Logout</button>
+                </div>
+            </header>
+
+            <form id="settingsForm">
+                <section class="settings-card" aria-labelledby="profileTitle">
+                    <div class="card-heading">
+                        <h2 id="profileTitle">Profile</h2>
+                        <p>Update the name and email used on your account.</p>
+                    </div>
+                    <div class="form-grid">
+                        <div class="field">
+                            <label for="studentName">Display name</label>
+                            <input id="studentName" name="studentName" type="text" autocomplete="name" maxlength="60" placeholder="Your name">
+                        </div>
+                        <div class="field">
+                            <label for="studentEmail">Email address</label>
+                            <input id="studentEmail" name="studentEmail" type="email" autocomplete="email" maxlength="254" placeholder="you@example.com" required>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="settings-card" aria-labelledby="preferencesTitle">
+                    <div class="card-heading">
+                        <h2 id="preferencesTitle">Preferences</h2>
+                        <p>Choose how EDUGpt looks and how you receive reminders.</p>
+                    </div>
+                    <div class="field" style="max-width: 320px; margin-bottom: 18px;">
+                        <label for="theme">Appearance</label>
+                        <select id="theme" name="theme">
+                            <option value="light">Light</option>
+                            <option value="dark">Dark</option>
+                            <option value="system">Use system setting</option>
+                        </select>
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-copy">
+                            <strong>Email updates</strong>
+                            <span>Receive learning tips and product updates.</span>
+                        </div>
+                        <label class="switch">
+                            <input id="emailUpdates" type="checkbox" aria-label="Email updates">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-copy">
+                            <strong>Quiz reminders</strong>
+                            <span>Get reminders to continue your quiz practice.</span>
+                        </div>
+                        <label class="switch">
+                            <input id="quizReminders" type="checkbox" aria-label="Quiz reminders">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </section>
+
+                <div class="actions">
+                    <button class="button button-secondary" id="resetBtn" type="button">Reset changes</button>
+                    <button class="button button-primary" type="submit">Save settings</button>
+                </div>
+                <p class="status" id="saveStatus" role="status" aria-live="polite"></p>
+            </form>
+        </main>
+    </div>
+
+    <script src="Settings.js"></script>
+</body>
+</html>
