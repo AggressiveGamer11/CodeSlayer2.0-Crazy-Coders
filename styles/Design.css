@@ -1,0 +1,334 @@
+:root {
+			--ink: #2c435a;
+			--muted: #637180;
+			--paper: #fffdf8;
+			--line: #dce4e8;
+			--teal: #0f766e;
+			--teal-dark: #115e59;
+			--coral: #e76f51;
+			--error: #ec1a0b;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			min-height: 100vh;
+			margin: 0;
+			color: var(--ink);
+			background: #dceeea;
+			font-family: Roboto, Arial, sans-serif;
+		}
+
+		.page {
+			display: grid;
+			grid-template-columns: minmax(280px, 0.9fr) minmax(420px, 1.1fr);
+			min-height: 100vh;
+			overflow: hidden;
+		}
+
+		.intro {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			padding: clamp(2rem, 6vw, 5.5rem);
+			color: #f8fffc;
+			background:
+				radial-gradient(circle at 80% 20%, rgba(231, 111, 81, 0.8) 0 10%, transparent 10.5%),
+				linear-gradient(145deg, #124e59 0%, #0f766e 56%, #54a89b 100%);
+		}
+
+		.intro::after {
+			position: absolute;
+			right: -8rem;
+			bottom: -9rem;
+			width: 22rem;
+			height: 22rem;
+			border: 1px solid rgba(255, 255, 255, 0.3);
+			border-radius: 50%;
+			box-shadow: 0 0 0 2.5rem rgba(255, 255, 255, 0.08), 0 0 0 5rem rgba(255, 255, 255, 0.05);
+			content: "";
+		}
+
+		.brand {
+			z-index: 1;
+			display: inline-flex;
+			align-items: center;
+			gap: 0.7rem;
+			width: fit-content;
+			font: 700 1.05rem/1.2 Arial, sans-serif;
+			letter-spacing: 0.03em;
+		}
+
+		.brand-mark {
+			display: grid;
+			width: 2.35rem;
+			height: 2.35rem;
+			place-items: center;
+			color: var(--teal-dark);
+			background: #f4c95d;
+			border-radius: 0.65rem 0.65rem 0.65rem 0.15rem;
+			font: 800 1.15rem Arial, sans-serif;
+		}
+
+		.intro-content {
+			z-index: 1;
+			max-width: 31rem;
+			margin: auto 0;
+			padding: 4rem 0;
+		}
+
+		.eyebrow {
+			margin: 0 0 1.1rem;
+			color: #f4c95d;
+			font: 700 0.76rem/1.2 Arial, sans-serif;
+			letter-spacing: 0.17em;
+			text-transform: uppercase;
+		}
+
+		h1 {
+			max-width: 12ch;
+			margin: 0;
+			font-size: clamp(2.7rem, 5vw, 5.3rem);
+			font-weight: 400;
+			line-height: 0.98;
+			letter-spacing: -0.04em;
+		}
+
+		.intro-copy {
+			max-width: 27rem;
+			margin: 1.5rem 0 0;
+			color: rgba(248, 255, 252, 0.82);
+			font-size: 1.1rem;
+			line-height: 1.6;
+		}
+
+		.quote {
+			z-index: 1;
+			max-width: 19rem;
+			margin: 0;
+			color: rgba(248, 255, 252, 0.7);
+			font-size: 0.93rem;
+			line-height: 1.5;
+		}
+
+		.quote strong {
+			display: block;
+			margin-top: 0.45rem;
+			color: #f8fffc;
+			font: 700 0.74rem Arial, sans-serif;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+		}
+
+		.form-panel {
+			display: grid;
+			place-items: center;
+			padding: 2rem;
+			background: var(--paper);
+		}
+
+		.login-card {
+			width: min(100%, 29rem);
+		}
+
+		.form-heading {
+			margin-bottom: 2.3rem;
+		}
+
+		.form-heading h2 {
+			margin: 0 0 0.65rem;
+			font-size: clamp(2rem, 4vw, 3rem);
+			font-weight: 400;
+			letter-spacing: -0.035em;
+		}
+
+		.form-heading p {
+			margin: 0;
+			color: var(--muted);
+			font: 0.98rem/1.5 Arial, sans-serif;
+		}
+
+		.field {
+			margin-bottom: 1.35rem;
+		}
+
+		label {
+			display: block;
+			margin-bottom: 0.5rem;
+			font: 700 0.78rem/1.2 Arial, sans-serif;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+		}
+
+		input {
+			width: 100%;
+			min-height: 3.35rem;
+			padding: 0.8rem 0.95rem;
+			color: var(--ink);
+			background: #fff;
+			border: 1px solid var(--line);
+			border-radius: 0.35rem;
+			font: 1rem Arial, sans-serif;
+			outline: none;
+			transition: border-color 160ms ease, box-shadow 160ms ease;
+		}
+
+		input:focus {
+			border-color: var(--teal);
+			box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.14);
+		}
+
+		.password-wrap {
+			position: relative;
+		}
+
+		.password-wrap input {
+			padding-right: 4.4rem;
+		}
+
+		.toggle-password {
+			position: absolute;
+			top: 50%;
+			right: 0.75rem;
+			padding: 0.35rem;
+			color: var(--teal-dark);
+			background: transparent;
+			border: 0;
+			cursor: pointer;
+			font: 700 0.72rem Arial, sans-serif;
+			letter-spacing: 0.04em;
+			text-transform: uppercase;
+			transform: translateY(-50%);
+		}
+
+		.toggle-password:focus-visible,
+		.forgot-link:focus-visible,
+		.submit-button:focus-visible {
+			outline: 3px solid rgba(231, 111, 81, 0.45);
+			outline-offset: 3px;
+		}
+
+		.form-options {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 1rem;
+			margin: 0.25rem 0 1.7rem;
+			font: 0.85rem Arial, sans-serif;
+		}
+
+		.remember {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			margin: 0;
+			color: var(--muted);
+			font: inherit;
+			letter-spacing: 0;
+			text-transform: none;
+		}
+
+		.remember input {
+			width: 1rem;
+			min-height: 1rem;
+			accent-color: var(--teal);
+		}
+
+		.forgot-link {
+			color: var(--teal-dark);
+			font-weight: 700;
+			text-decoration: none;
+		}
+
+		.forgot-link:hover {
+			text-decoration: underline;
+		}
+
+		.submit-button {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 0.8rem;
+			width: 100%;
+			min-height: 3.5rem;
+			color: #fff;
+			background: linear-gradient(135deg, #115e59, #0f766e);
+			border: 0;
+			border-radius: 0.55rem;
+			box-shadow: 0 8px 18px rgba(15, 118, 110, 0.25);
+			cursor: pointer;
+			font: 700 0.86rem Arial, sans-serif;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+			transition: 180ms ease;
+		}
+
+		.submit-button:hover {
+			background: linear-gradient(135deg, #0b4845, #0f766e);
+			box-shadow: 0 12px 24px rgba(15, 118, 110, 0.35);
+			transform: translateY(-3px);
+		}
+
+		.submit-button:active {
+			transform: translateY(0);
+		}
+
+		.button-arrow {
+			font-size: 1.25rem;
+			transition: transform 180ms ease;
+		}
+
+		.submit-button:hover .button-arrow {
+			transform: translateX(4px);
+		}
+
+		.status {
+			min-height: 1.4rem;
+			margin: 1rem 0 0;
+			color: var(--error);
+			font: 0.86rem/1.4 Arial, sans-serif;
+		}
+
+		.signup {
+			margin: 2rem 0 0;
+			color: var(--muted);
+			text-align: center;
+			font: 0.88rem Arial, sans-serif;
+		}
+
+		.signup a {
+			color: var(--teal-dark);
+			font-weight: 700;
+			text-decoration: none;
+		}
+
+		@media (max-width: 760px) {
+			.page {
+				grid-template-columns: 1fr;
+			}
+
+			.intro {
+				min-height: 22rem;
+				padding: 1.5rem;
+			}
+
+			.intro-content {
+				padding: 3rem 0 1rem;
+			}
+
+			h1 {
+				font-size: clamp(2.7rem, 13vw, 4.4rem);
+			}
+
+			.intro-copy,
+			.quote {
+				display: none;
+			}
+
+			.form-panel {
+				padding: 3rem 1.5rem 4rem;
+			}
+		}
